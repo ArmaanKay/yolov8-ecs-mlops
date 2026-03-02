@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOLOv8 Object Detection</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>YOLOv8 Object Detection</h1>
+    <p class="subtitle">
+      Upload an image and detect objects using the Flask + YOLOv8 backend.
+    </p>
+
+    <section class="controls">
+      <input type="file" id="imageInput" accept="image/*" />
+      <button id="detectButton">Detect Objects</button>
+    </section>
+
+    <p id="statusMessage">Choose an image to begin.</p>
+
+    <section class="viewer">
+      <div class="image-wrapper">
+        <img id="previewImage" alt="Image preview" />
+        <canvas id="overlayCanvas"></canvas>
+      </div>
+    </section>
+
+    <section class="results">
+      <h2>Detections</h2>
+      <ul id="detectionList"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
