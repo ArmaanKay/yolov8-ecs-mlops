@@ -114,7 +114,7 @@ detectButton.addEventListener("click", async () => {
     const formData = new FormData();
     formData.append("image", selectedFile);
 
-    const response = await fetch("http://localhost:5001/predict", {
+    const response = await fetch("/predict", {
       method: "POST",
       body: formData
     });
