@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-from model import predict_image 
+from src.model import predict_image 
 
 app = Flask(__name__)
 CORS(app)
@@ -14,12 +14,12 @@ def health():
 def predict():
     if "image" not in request.files:
         return jsonify({"error": "No image file provided. Use form field name 'image'."}), 400
-    
+
     image_file = request.files["image"]
 
     if image_file.filename == "":
         return jsonify({"error": "Empty filename provided."}), 400
-    
+
     try:
         image_bytes = image_file.read()
         prediction = predict_image(image_bytes)
