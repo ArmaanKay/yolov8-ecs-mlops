@@ -1,14 +1,13 @@
 services:
   backend:
-    build: ./app/backend
-    image: yolov8-backend
+    build: ./app/backend        # Build backend image from app/backend/Dockerfile
+    image: yolov8-backend       # Tag the built image locally as "yolov8-backend"
     ports:
-      - "5001:5001"
+      - "5001:5001"             # Host:5001 -> Container:5001 (Gunicorn listens on 5001)
 
-  frontend: 
-    build: ./app/frontend
-    ports: 
-      - "3000:80"
+  frontend:
+    build: ./app/frontend       # Build frontend image from app/frontend/Dockerfile (nginx)
+    ports:
+      - "3000:80"               # Host:3000 -> Container:80 (nginx serves HTTP on 80)
     depends_on:
-      - backend
-      
+      - backend                 # Start backend first (doesn't guarantee "healthy", just order)    
